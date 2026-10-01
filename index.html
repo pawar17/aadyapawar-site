@@ -558,6 +558,80 @@ body.reading{overflow:hidden}
   *,*::before,*::after{animation:none!important;transition:none!important}
   html{scroll-behavior:auto}
 }
+
+/* ---------- product portfolio (separate view) ---------- */
+body.pf-open header.hero,body.pf-open main,body.pf-open footer{display:none}
+#pf{display:none;background:var(--paper-2);min-height:100vh;padding-block:clamp(28px,5vw,56px) clamp(64px,9vw,110px)}
+body.pf-open #pf{display:block}
+.pf-back{font-family:var(--f-pixel);font-size:13px;text-decoration:none;display:inline-flex;gap:8px;align-items:center;border:1.5px solid var(--line);padding:8px 12px;background:var(--paper)}
+.pf-back:hover{box-shadow:4px 4px 0 var(--pink);transform:translate(-2px,-2px)}
+.pf-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:clamp(24px,4vw,40px);flex-wrap:wrap}
+.pf-title{font-family:var(--f-pixel);font-weight:700;font-size:clamp(28px,4.4vw,52px);line-height:1.05;margin:0}
+.pf-title em{font-style:normal;color:var(--pink)}
+.pf-lede{margin:10px 0 0;color:var(--graphite);font-size:16px;max-width:56ch}
+.pf-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:clamp(22px,3vw,34px) 0 clamp(26px,4vw,44px);position:sticky;top:68px;z-index:20;padding:10px 0;background:var(--paper-2)}
+.pf-tab{font-family:var(--f-pixel);font-size:13px;padding:9px 14px;border:1.5px solid var(--line);background:var(--paper);cursor:pointer;color:var(--ink)}
+.pf-tab[aria-selected="true"]{background:var(--ink);color:var(--paper);box-shadow:4px 4px 0 var(--pink)}
+.pf-tab:hover{box-shadow:3px 3px 0 var(--pink)}
+.pf-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:clamp(24px,4vw,56px);align-items:start}
+@media (max-width:900px){.pf-grid{grid-template-columns:1fr}.pf-side{order:-1;max-width:240px;margin-inline:auto;position:static!important}}
+.pf-hero h2{margin:0 0 6px;font-family:var(--f-pixel);font-size:clamp(30px,5vw,56px);line-height:1}
+.pf-sub{font-family:var(--f-mono);font-size:12px;color:var(--graphite);letter-spacing:.04em;text-transform:uppercase;margin-bottom:14px}
+.pf-tag{font-family:var(--f-clean);font-weight:700;font-size:clamp(18px,2.2vw,24px);line-height:1.4;margin:0 0 18px;max-width:34ch}
+.pf-links{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:clamp(28px,4vw,44px)}
+.pf-links .btn{font-size:12px;padding:8px 12px}
+.btn.ghost{opacity:.55;cursor:default;border-style:dashed}
+.btn.ghost:hover{box-shadow:none;transform:none}
+.pf-sec{padding-block:clamp(18px,2.4vw,28px);border-top:2px solid var(--line)}
+.pf-sec>h3{margin:0 0 12px;font-family:var(--f-pixel);font-size:14px;letter-spacing:.04em;display:flex;gap:10px;align-items:center}
+.pf-sec>h3 b{background:var(--pink);color:var(--ink);padding:1px 7px;font-size:12px}
+.pf-sec p{margin:0 0 12px;font-family:var(--f-clean);font-size:16.5px;line-height:1.65;max-width:68ch}
+.pf-list{list-style:none;padding:0;margin:14px 0 0;display:grid;gap:10px;max-width:68ch}
+.pf-list li{font-family:var(--f-clean);font-size:15.5px;line-height:1.6;padding-left:22px;position:relative}
+.pf-list li::before{content:"";position:absolute;left:0;top:.62em;width:9px;height:9px;background:var(--pink);border:1.5px solid var(--line);transform:rotate(45deg)}
+.pf-list li b{font-weight:800}
+.pf-comps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:6px}
+@media (max-width:1100px){.pf-comps{grid-template-columns:1fr}}
+.pf-comp{background:var(--paper);border:1.5px solid var(--line);display:flex;flex-direction:column}
+.pf-shot{aspect-ratio:16/10;background:repeating-linear-gradient(135deg,#f4f3f6 0 10px,#eeedf0 10px 20px);border-bottom:1.5px solid var(--line);display:grid;place-items:center;font-family:var(--f-mono);font-size:11px;color:var(--graphite);text-align:center;overflow:hidden}
+.pf-shot img{width:100%;height:100%;object-fit:cover;display:block}
+.pf-comp-b{padding:14px 14px 16px;display:grid;gap:10px}
+.pf-comp h4{margin:0;font-family:var(--f-sans);font-weight:800;font-size:17px}
+.pf-comp .k{font-family:var(--f-pixel);font-size:10.5px;letter-spacing:.05em;display:block;margin-bottom:2px}
+.pf-comp .k.good{color:#2f7d4f}.pf-comp .k.gap{color:var(--pink-deep)}
+.pf-comp p{margin:0;font-size:14.5px;line-height:1.55}
+.pf-insight{font-family:var(--f-clean);font-weight:700;font-size:clamp(18px,2vw,22px)!important;line-height:1.5!important;border-left:5px solid var(--pink);padding-left:16px;max-width:60ch!important}
+.pf-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+@media (max-width:900px){.pf-metrics{grid-template-columns:1fr}}
+.pf-metric{background:var(--ink);color:var(--paper);padding:16px;border:1.5px solid var(--line)}
+.pf-metric .k{font-family:var(--f-pixel);font-size:11px;color:var(--pink);display:block;margin-bottom:8px;letter-spacing:.04em;text-transform:uppercase}
+.pf-metric p{margin:0;font-size:14.5px;line-height:1.55;color:#eee}
+.pf-side{position:sticky;top:130px}
+.pf-vid{aspect-ratio:9/16;background:var(--ink);border:2px solid var(--line);box-shadow:8px 8px 0 var(--pink);position:relative;overflow:hidden;display:grid;place-items:center;color:var(--paper);text-align:center;padding:16px}
+.pf-vid video,.pf-vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover;background:#000}
+.pf-vid .ph{display:grid;gap:10px;justify-items:center;font-family:var(--f-pixel);font-size:12px;line-height:1.5}
+.pf-vid .play{width:54px;height:54px;border-radius:50%;border:2px solid var(--pink);display:grid;place-items:center;color:var(--pink)}
+.pf-cap{font-family:var(--f-mono);font-size:11.5px;color:var(--graphite);margin-top:18px;text-align:center}
+.pf-gal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:6px}
+@media (max-width:600px){.pf-gal{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.pf-gal .pf-shot{aspect-ratio:4/3;border:1.5px dashed var(--graphite)}
+.pf-gal img{border:1.5px solid var(--line)}
+/* projects: compact cards + portfolio banner */
+.pf-banner{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;background:var(--ink);color:var(--paper);border:2px solid var(--line);box-shadow:6px 6px 0 var(--pink);padding:clamp(16px,2.2vw,24px) clamp(18px,2.6vw,30px);margin:0 0 clamp(26px,4vw,40px)}
+.pf-banner b{display:block;font-family:var(--f-pixel);font-size:clamp(15px,1.8vw,20px);margin-bottom:4px}
+.pf-banner span{font-family:var(--f-clean);font-size:14.5px;color:#d8d5d9}
+.pf-banner .btn{background:var(--pink);color:var(--ink);border-color:var(--pink)}
+.pf-banner .btn:hover{box-shadow:4px 4px 0 var(--paper)}
+#projectGrid.grid3{grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2vw,24px)}
+#projectGrid .shot{aspect-ratio:1/0.66}
+@media (max-width:820px){#projectGrid.grid3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){#projectGrid.grid3{grid-template-columns:1fr}}
+#projectGrid .polaroid{padding:9px 9px 0}
+#projectGrid .shot .desc{font-size:12.5px;line-height:1.5;padding:0 9%}
+#projectGrid .cap{padding:10px 2px 12px}
+#projectGrid .cap h3{font-size:clamp(22px,2vw,27px)}
+#projectGrid .tags span{font-size:11px}
+.casebadge{font-family:var(--f-pixel);font-size:10px;background:var(--pink);color:var(--ink);padding:2px 6px;text-decoration:none;border:1px solid var(--line)}
 </style>
 
 <nav class="nav" id="nav" aria-label="Main">
@@ -567,6 +641,7 @@ body.reading{overflow:hidden}
     <ul class="links" id="links">
       <li><a href="#about">About</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#portfolio">Product</a></li>
       <li><a href="#research">Research</a></li>
       <li><a href="#industry">Industry</a></li>
       <li><a href="#community">Community</a></li>
@@ -638,6 +713,7 @@ body.reading{overflow:hidden}
         <button class="chip" aria-pressed="false" data-f="design">Design</button>
       </div>
     </div>
+    <div class="pf-banner"><div><b>Product Portfolio</b><span>5 case studies: the problem, the user, the competitors, and the thinking behind what I built.</span></div><a class="btn" href="#portfolio" data-open-pf>Open portfolio →</a></div>
     <div class="grid3" id="projectGrid">
       <article class="polaroid" data-tags="design" tabindex="0">
         <div class="shot">
@@ -672,7 +748,7 @@ body.reading{overflow:hidden}
           <img src="data:image/jpeg;base64,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igAooooAKKKKACiiigBZf9Y1Np0v+sam0AFFFFACiikFLQAUUUUAFFGaKACpEHNMp8dAF634FWhVWDpVpaAHCjFLRSGNxSgUtJxTAUUUZozQIQ0mKd1ooASkpf60lIAoxRS5pgJgUEcUoFFADMYp1FBoAKKQtzS5xQAGkHBozmigANFHWkK5FADs0vaol4qTqtADu9FJRnmgBaDRRQA0immpeKQigCHFSClxRjFAC9qQ0tFADcU0nAp9LjIxQBk3Lguc81AanvEw+R0qA0AJR+lL6UlABRRRQAlFFFACUtFFABRRRQAUUUUAFFFFABRRRQAsn+sam06T75ptABRRRQAUopKBQAtJmlNJQAUCiigB1KGwaaKDQBp2o3IGqyKpaZI727GVduHwvuPWrgzQA/NLmkFFAwozRRSAAaWkwMUc0xBRRRQAdabuyfSnUhApAIePelFIBxigHmmA4HNBoAxQaBhRQaB0pAMdc00EqMVIaacUxArAnFOxUYXDe1PPtQAgODTs5pjdRxSg0AKBSr3pBThQMTNGaWjFAg6UmeeKWk70AOBpCaWkNABRRRSGANFAo6GmITNKDSAc0tAGZfnbJs9eaqk81dvovMm3A9qrGAgZ3CgCPNFKUx3FIR70AJRQaKACiiigAooooAKKKKACiiigAooooAKKKKAFk++abTpPvmm0AFFFFABSikozigBaSkMqDq6/nSebGejr+dADqKKKACnKuSKbTg+2gC7DxgDoKuocgVQtn3nFX0GBQA8UtIKXNABilC5pKXdigBdoOabtp2aaecUAGKO9BNGaAEo60tJQAlNAyc9qfSd8UAOpDRS9qAEopelIaAA80hpaSgBOKKCKUc0hjaUCn7RSEYpgIBTqbThQISiloNACYox270UvfNABRRTSaAFpabnmlzQAtIeRRnNJ0oAOvNHUUHikAxQBBd4VdzVnNdRA43c07W74QxMB2HSuLa8maQsXbJNAHX+dE3IcU0yx5+8K5db6XGM0v2+YdGxQB04dG6MKftrn7G+kaUBjnNdHExKAmgCPBHakpby88mMnZk0gOVVvUZoAKKKKACiiigAooooAKKKKACiiigBZP9Y1Np0n+sam0AFFFFABWVrl68EQjibBbqRVrU7s2lsWAJZuAR2rm7i5kuFUOOQMZ9aAImlkfO52Ofeno7IoIY5HvUNLzSGa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" alt="" loading="lazy">
           <div class="desc">Unified fragmented assistive tech into one activity-based interface for children with quadriplegic cerebral palsy, raising functional independence from 10% to 80%</div>
         </div>
-        <div class="cap"><h3>Nexus</h3><div class="tags"><span>Assistive tech</span><span>Robotics</span></div></div>
+        <div class="cap"><h3>Nexus</h3><div class="tags"><span>Assistive tech</span><span>Robotics</span><a class="casebadge" href="#portfolio/nexus">Case study →</a></div></div>
       </article>
       <article class="polaroid" data-tags="data" tabindex="0">
         <div class="shot">
@@ -997,6 +1073,18 @@ body.reading{overflow:hidden}
 </section>
 </main>
 <footer><div class="wrap"><span>© 2026 Aadya Pawar</span><span>New York · Mumbai · West Lafayette</span></div></footer>
+<div id="pf" aria-label="Product portfolio">
+  <div class="wrap">
+    <div class="pf-top"><a class="pf-back" href="#projects">← Back to site</a></div>
+    <h1 class="pf-title">Product <em>Portfolio</em></h1>
+    <p class="pf-lede">How I think about the products I build: who it's for, what's broken today, who else is trying, and the insight that makes mine different.</p>
+    <div class="pf-tabs" role="tablist" id="pfTabs" aria-label="Case studies"></div>
+    <div class="pf-grid">
+      <div id="pfBody"></div>
+      <aside class="pf-side"><div class="pf-vid" id="pfVid"></div><div class="pf-cap" id="pfVidCap"></div></aside>
+    </div>
+  </div>
+</div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
@@ -1238,6 +1326,408 @@ body.reading{overflow:hidden}
       document.body.appendChild(d); setTimeout(() => d.remove(), 650);
     });
   }
+
+  // ---------- product portfolio view ----------
+  // Fill these in as you get assets: github / demo (links), video (mp4 or YouTube/Vimeo embed URL, vertical), shots (competitor screenshots by competitor order), gallery (product images)
+  const PF_ASSETS = {
+    cashflow:  { github:'', demo:'', video:'', shots:['','',''], gallery:[] },
+    nexus:     { github:'', demo:'', video:'', shots:['','',''], gallery:[] },
+    signbridge:{ github:'', demo:'', video:'', shots:['','',''], gallery:[] },
+    carryover: { github:'', demo:'', video:'', shots:['','',''], gallery:[] },
+    fridge:    { github:'', demo:'', video:'', shots:['','',''], gallery:[] }
+  };
+  const PF = [
+ {
+  "id": "cashflow",
+  "name": "Cashflow",
+  "sub": "Cross-Border Student Remittance & Liquidity",
+  "tagline": "A transparent, low-fee cross-border liquidity app designed for international students to transfer living expenses, unlock instant emergency funds, and avoid predatory foreign exchange markups.",
+  "problem": "International students face severe remittance friction when paying rent and tuition from abroad. Traditional wire transfers take 3 to 5 business days to clear, carry surprise recipient fees, and hide steep 3% to 5% FX rate markups. When urgent living expenses arise (e.g., apartment security deposits, medical co-pays), students cannot wait for a wire to clear, and local US credit unions or banks deny them standard credit lines due to a lack of US credit history (SSN/FICO).",
+  "hard": [
+   {
+    "t": "Fragmented cross-border compliance",
+    "d": "Navigating sender-country capital controls (such as India's LRS tax and reporting rules) alongside US anti-money laundering (AML) requirements creates regulatory delays."
+   },
+   {
+    "t": "Lack of domestic credit identity",
+    "d": "US financial institutions operate on domestic credit scores, treating creditworthy international students as subprime risks."
+   },
+   {
+    "t": "Opaque fee stacking",
+    "d": "Intermediary correspondent banks slice fees off transfers mid-route without warning."
+   }
+  ],
+  "who": "International undergraduate and graduate students navigating overseas education without US credit history, along with their sponsoring parents who need reliable, recurring methods to fund monthly rent and tuition on time.",
+  "comp": [
+   {
+    "name": "Wise (formerly TransferWise)",
+    "good": "Mid-market exchange rates and transparent upfront fee breakdowns.",
+    "gap": "Operates strictly as a pre-funded remittance pipe; does not offer instant liquidity bridges, student-specific underwriting, or educational bill splitting."
+   },
+   {
+    "name": "Flywire",
+    "good": "Seamless institutional integrations directly with university bursar offices.",
+    "gap": "Highly restricted to institutional tuition invoices; cannot be used for off-campus rent, personal groceries, daily living allowances, or peer transfers."
+   },
+   {
+    "name": "Western Union",
+    "good": "Extensive global physical agent footprint and cash pick-up options.",
+    "gap": "Punitive FX spreads, outdated branch visits, high flat transfer fees, and zero software integration with student bank accounts."
+   }
+  ],
+  "insight": "Cashflow connects international sponsor accounts to domestic student accounts using automated compliance pipelines and real-time fraud detection.",
+  "sol": [
+   {
+    "t": "Zero-markup FX pipeline",
+    "d": "Aggregates bank liquidity providers to offer true interbank rates with a flat, visible processing charge."
+   },
+   {
+    "t": "Instant Bridge Credit",
+    "d": "While cross-border ACH/SWIFT settlements clear in the background (48–72 hours), Cashflow extends a zero-interest liquidity advance based on verified student enrollment and visa status, eliminating rent-payment delays."
+   },
+   {
+    "t": "Integrated Compliance Vault",
+    "d": "Automatically pre-files relevant tax and educational remittance documentation (like Form A2 / LRS reporting in India), removing manual branch visits for parents."
+   }
+  ],
+  "metrics": [
+   {
+    "t": "North star",
+    "d": "Total cross-border volume (TPV) delivered into verified student living accounts within 60 minutes."
+   },
+   {
+    "t": "Supporting metrics",
+    "d": "Average basis points saved per transaction versus traditional retail banks; percentage of bridge advances repaid automatically upon wire settlement."
+   },
+   {
+    "t": "Guardrails",
+    "d": "Chargeback and fraud rate under 0.1% using real-time API verification; zero regulatory non-compliance flags across corridors."
+   }
+  ]
+ },
+ {
+  "id": "nexus",
+  "name": "NEXUS",
+  "sub": "Unified Assistive-Technology Platform",
+  "tagline": "A unified, activity-based assistive technology interface designed to restore digital and physical independence for children with quadriplegic cerebral palsy.",
+  "problem": "Children with severe motor impairments rely on multiple disconnected assistive tools (eye-gaze trackers, mechanical switch buttons, AAC speech boards, and room environmental controls). Each tool runs on isolated software requiring separate calibrations, logins, and navigation structures. When a child switches from speaking a sentence to answering a school assignment, a parent or therapist must step in to rewire and reconfigure hardware settings. This causes cognitive exhaustion and reduces independent task completion to just 10%.",
+  "hard": [
+   {
+    "t": "Walled-garden peripherals",
+    "d": "Assistive tech manufacturers lock hardware into proprietary drivers and closed operating environments."
+   },
+   {
+    "t": "High motor and cognitive load",
+    "d": "Traditional operating systems require deep nested folder navigation that children with physical fatigue cannot sustain."
+   },
+   {
+    "t": "Context disconnect",
+    "d": "Communication boards do not talk to educational software, forcing the child to rely on an adult intermediary to translate their intent."
+   }
+  ],
+  "who": "Children with quadriplegic cerebral palsy, alongside their care circle: pediatric occupational therapists, speech-language pathologists, and caregiving parents seeking seamless daily workflows.",
+  "comp": [
+   {
+    "name": "Tobii Dynavox (Communicator 5)",
+    "good": "Gold-standard eye-tracking precision and clinical communication boards.",
+    "gap": "High cognitive overhead, rigid menus, and zero native orchestration with peripheral switch inputs or external classroom apps."
+   },
+   {
+    "name": "Apple AssistiveTouch & Switch Control",
+    "good": "Deep OS-level integration across commercial consumer tablets.",
+    "gap": "Built primarily for adult motor impairments; lacks pediatric customization, unified multi-sensor input mapping, and activity-driven workspaces."
+   },
+   {
+    "name": "PRC-Saltillo (Accent Devices)",
+    "good": "Extremely rugged hardware units built for speech output.",
+    "gap": "Locked proprietary systems that cannot launch or integrate with modern web-based school platforms or streaming tools, creating fragmented care routines."
+   }
+  ],
+  "insight": "Instead of organizing software around devices or applications, NEXUS organizes interfaces around human activities (\"Morning Circle,\" \"Math Class,\" \"Independent Play\").",
+  "sol": [
+   {
+    "t": "Unified Sensor Layer",
+    "d": "Binds switch access, eye-gaze tracking, and touchscreen inputs into one adaptive driver layer."
+   },
+   {
+    "t": "Activity-Driven Workspaces",
+    "d": "Automatically shifts the interaction layout to match the current daily task, eliminating manual caregiver reconfiguration."
+   },
+   {
+    "t": "Demonstrated Impact",
+    "d": "Direct qualitative interviews with families and clinicians informed an iterative prototype that lifted functional task independence from 10% to 80% during user testing."
+   }
+  ],
+  "metrics": [
+   {
+    "t": "North star",
+    "d": "Percentage of daily routine tasks completed end-to-end without adult physical intervention (achieved 80% in initial trials)."
+   },
+   {
+    "t": "Supporting metrics",
+    "d": "Time required to switch between communicative and academic tasks; daily hours of independent device usage without calibration drift."
+   },
+   {
+    "t": "Guardrails",
+    "d": "Calibration reset rate under once per 4 hours; zero system freezes during active speech synthesis."
+   }
+  ]
+ },
+ {
+  "id": "signbridge",
+  "name": "SignBridge",
+  "sub": "Cross-Sign-Language Translator",
+  "tagline": "A real-time, camera-only translation platform bridging communication between Deaf signers and non-signers with sub-200 ms latency.",
+  "problem": "Conversations between Deaf or Hard-of-Hearing signers and hearing non-signers break down into slow note-typing or reliance on scarce, pre-scheduled human interpreters. Existing digital translation tools are either slow, one-way (speech-to-avatar only), or fail to capture the 3D spatial geometry, subtle hand rotations, and facial grammar indispensable to sign language syntax.",
+  "hard": [
+   {
+    "t": "High computational latency",
+    "d": "Extracting full-body landmarks, hand joints, and facial meshes usually demands heavy GPU infrastructure that lags in interactive conversations."
+   },
+   {
+    "t": "Loss of non-manual markers",
+    "d": "Standard 2D camera models miss depth and facial expressions (eyebrow raises, mouth morphemes) that convey grammatical tone and tense."
+   },
+   {
+    "t": "Unidirectional design",
+    "d": "Most tools focus on translating hearing speech into animated avatars, treating the Deaf individual as a passive receiver rather than an active initiator."
+   }
+  ],
+  "who": "Deaf and Hard-of-Hearing individuals who need fast, spontaneous communication in daily transactional settings (coffee shops, pharmacy counters, doctor visits, airport desks) without relying on expensive hardware rigs.",
+  "comp": [
+   {
+    "name": "Google Live Transcribe",
+    "good": "Fast speech-to-text transcription on standard mobile devices.",
+    "gap": "Entirely one-way; captures only spoken sound, forcing sign language users to type text manually rather than communicating in their native sign language."
+   },
+   {
+    "name": "SignAll",
+    "good": "Enterprise-grade American Sign Language sentence translation.",
+    "gap": "Relies on bulky multi-camera rigs, specialized depth sensors, and colored gloves, making portable, on-the-go interaction impossible."
+   },
+   {
+    "name": "Hand Talk",
+    "good": "Translates text and audio into an expressive 3D signing avatar.",
+    "gap": "One-way output only; lacks any computer-vision capability to understand or translate a Deaf signer's natural physical responses back to the hearing participant."
+   }
+  ],
+  "insight": "A bidirectional, camera-based sequence-to-sequence translation platform running in the browser and mobile environments.",
+  "sol": [
+   {
+    "t": "Skeletal Tracking with Sub-200 ms Latency",
+    "d": "Combines MediaPipe Holistic 3D tracking with lightweight Transformer sequence models to parse gestures, body pose, and facial expressions in real time."
+   },
+   {
+    "t": "Interactive Correction Loop",
+    "d": "Gives signers instant tactile/visual feedback on recognized tokens, allowing rapid corrections without resetting the conversation flow."
+   },
+   {
+    "t": "Validated Usability",
+    "d": "Documented as a first-author SIGCHI submission, with a 7-participant user study showing multilingual support and interactive error-correction rated significantly above neutral."
+   }
+  ],
+  "metrics": [
+   {
+    "t": "North star",
+    "d": "End-to-end conversation turnaround latency (sustained below 200 ms)."
+   },
+   {
+    "t": "Supporting metrics",
+    "d": "Token error rate (TER) on cross-sign-language translation; user study satisfaction ratings across interactive correction loops."
+   },
+   {
+    "t": "Guardrails",
+    "d": "Model memory footprint under 50 MB for client-side web execution; frame drop rate under 5% on mid-range smartphone cameras."
+   }
+  ]
+ },
+ {
+  "id": "carryover",
+  "name": "Carryover",
+  "sub": "Device-Only Knowledge Transfer Notebook",
+  "tagline": "A private, on-device notebook app that turns daily handwritten knowledge-transfer notes into an organized, searchable systems knowledge base without corporate cloud exposure.",
+  "problem": "New analysts and engineers take down extensive knowledge-transfer (KT) details on physical paper, starting a fresh page every morning for disparate topics. A month in, critical deployment procedures are scattered across dozens of unindexed pages. Notes lack system context, environment labels, or glossary definitions for internal corporate acronyms. Digitizing this documentation usually requires pasting internal architecture details into third-party cloud apps, which violates strict enterprise data security policies. As a result, critical operational knowledge remains buried on paper.",
+  "hard": [
+   {
+    "t": "Strict compliance boundaries",
+    "d": "Regulated financial and enterprise environments prohibit uploading internal schemas, credentials, and infrastructure notes to cloud-hosted tools."
+   },
+   {
+    "t": "Fragmented knowledge ingestion",
+    "d": "Senior engineers explain multiple disconnected microservices, databases, and cron jobs in rapid succession during live KT sessions."
+   },
+   {
+    "t": "Handwriting transcription loss",
+    "d": "Complex domain acronyms and architectural variable names get mangled by generic OCR models."
+   }
+  ],
+  "who": "Newly hired software engineers, technical business analysts, and rotating associates in regulated industries (financial services, defense, healthcare) who need to master legacy codebases and release workflows without violating internal compliance policies.",
+  "comp": [
+   {
+    "name": "Rocketbook",
+    "good": "Provides smooth digitizing of handwritten notebook pages into static PDF/image formats.",
+    "gap": "Treats pages as flat scans; cannot split notes by system context or process, requires cloud routing, and does not build a searchable relational graph."
+   },
+   {
+    "name": "Goodnotes / Notability",
+    "good": "Searchable vector digital ink and flexible tablet journaling.",
+    "gap": "Demands carrying a tablet and stylus rather than standard enterprise paper, maintains chronological rather than architectural file trees, and syncs across external cloud services."
+   },
+   {
+    "name": "Notion / Microsoft OneNote",
+    "good": "Scalable desktop documentation wikis and hierarchical page trees.",
+    "gap": "Built around typed text; converting messy handwritten notes into structured wikis requires tedious manual data entry, and team sync engines store data off-device."
+   }
+  ],
+  "insight": "Carryover indexes notes by system architecture and environment rather than date alone.",
+  "sol": [
+   {
+    "t": "On-Device OCR & Entity Extraction",
+    "d": "Photographs of paper pages are transcribed locally on the device, flagging ambiguous technical terms rather than hallucinating words."
+   },
+   {
+    "t": "Context & Environment Tagging",
+    "d": "Users split scanned pages into discrete functional topics, tagging each note with its target system, environment (Dev, UAT, Prod), and team owner."
+   },
+   {
+    "t": "Context Map & Acronym Glossary",
+    "d": "Automatically links mentions of internal systems together and generates an inline glossary for proprietary acronyms across all historical scans."
+   },
+   {
+    "t": "Zero-Cloud Footprint",
+    "d": "Everything is encrypted on local disk storage with zero server communication, ensuring strict adherence to enterprise data policies."
+   }
+  ],
+  "metrics": [
+   {
+    "t": "North star",
+    "d": "Time saved locating specific system runbooks or credentials compared to manual notebook flipping."
+   },
+   {
+    "t": "Supporting metrics",
+    "d": "Number of repetitive questions resolved independently without pinging senior team members; accuracy of local OCR parsing on technical jargon."
+   },
+   {
+    "t": "Guardrails",
+    "d": "Zero outbound network traffic packets during OCR processing and storage operations; 100% on-device encryption verification."
+   }
+  ]
+ },
+ {
+  "id": "fridge",
+  "name": "Fridge",
+  "sub": "Zero-Logging Visual Inventory & Meal Planner",
+  "tagline": "A visual refrigerator widget on your mobile home screen that tracks grocery freshness, cuts household food waste, and turns available ingredients into healthy meals with near-zero manual logging.",
+  "problem": "Young professionals buy groceries with good intentions, but once items sit behind closed refrigerator doors, they disappear from awareness. Meals are planned without visibility into what is already stocked, leading to duplicate grocery purchases, expired produce, and default takeout orders.",
+  "hard": [
+   {
+    "t": "High data entry friction",
+    "d": "Conventional inventory and calorie apps require typing item names, weights, and expiration dates, prompting users to abandon them within weeks."
+   },
+   {
+    "t": "Drift and stale state",
+    "d": "Even when initial grocery hauls are logged, inventories quickly fall out of sync as items are partially consumed, shared, or discarded without updates."
+   },
+   {
+    "t": "Tool fragmentation",
+    "d": "Separate apps manage grocery lists, pantry inventory, recipe search, and calorie tracking, preventing a unified workflow."
+   }
+  ],
+  "who": "Solo young professionals and roommates who cook several nights a week, balance tight schedules, and aim to minimize grocery waste and sustain nutrition goals without burdensome data entry.",
+  "comp": [
+   {
+    "name": "MyFitnessPal",
+    "good": "Expansive food database, barcode scanning, and established daily calorie tracking loops.",
+    "gap": "Focuses entirely on consumed meals; maintains zero state on kitchen inventory, cannot flag approaching spoilage, and requires manual line-by-line entry for every meal."
+   },
+   {
+    "name": "NoWaste",
+    "good": "Dedicated grocery inventory tracking with color-coded expiration dates.",
+    "gap": "Depends completely on manual typing or barcode scanning per item; fails to tie available inventory directly into personalized recipes or caloric targets."
+   },
+   {
+    "name": "Supercook / Mealime",
+    "good": "Generates recipes based on selected pantry ingredients (Supercook) and clean meal plans (Mealime).",
+    "gap": "Requires manual re-entry of available items every session, does not track shelf-life decay, and operates separately from daily nutritional tracking."
+   }
+  ],
+  "insight": "Fridge replaces abstract lists with a visual, interactive refrigerator door on the home screen powered by automated receipt ingestion.",
+  "sol": [
+   {
+    "t": "Receipt Scan & Line Parsing",
+    "d": "On-device OCR reads paper receipts, decodes cryptic supermarket product abbreviations (e.g., \"ORG BNLS CHKN BRST\"), filters out non-food items, and assigns items to virtual shelves with automated use-by estimates."
+   },
+   {
+    "t": "Single-Gesture Updates",
+    "d": "Swiping right indicates an item was eaten; swiping left flags it as discarded, keeping the inventory synchronized with physical habits."
+   },
+   {
+    "t": "\"Cook Tonight\" Engine",
+    "d": "Suggests home-cooked meals ranked by ingredients approaching expiration and remaining caloric allowances. Cooking a recommended dish decrements pantry stock and logs nutrition in one tap."
+   },
+   {
+    "t": "Private & Offline",
+    "d": "Runs as a lightweight, offline-first client application storing inventory records exclusively on the device."
+   }
+  ],
+  "metrics": [
+   {
+    "t": "North star",
+    "d": "Percentage of purchased groceries consumed before expiration."
+   },
+   {
+    "t": "Supporting metrics",
+    "d": "Number of home-cooked meals prepared from existing stock weekly; dollars of food waste avoided per month."
+   },
+   {
+    "t": "Guardrails",
+    "d": "Under 20 seconds to log or consume a meal; receipt line parsing accuracy sustained above 90%."
+   }
+  ]
+ }
+];
+  const pfTabs = document.getElementById('pfTabs'), pfBody = document.getElementById('pfBody'), pfVid = document.getElementById('pfVid'), pfVidCap = document.getElementById('pfVidCap');
+  const esc = t => String(t).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  pfTabs.innerHTML = PF.map(p => `<button class="pf-tab" role="tab" data-id="${p.id}" aria-selected="false">${esc(p.name)}</button>`).join('');
+  const li = a => a.map(x => `<li><b>${esc(x.t)}:</b> ${esc(x.d)}</li>`).join('');
+  function renderPF(id) {
+    const p = PF.find(x => x.id === id) || PF[0], a = PF_ASSETS[p.id] || {};
+    pfTabs.querySelectorAll('.pf-tab').forEach(b => b.setAttribute('aria-selected', b.dataset.id === p.id));
+    const link = (u, label) => u ? `<a class="btn" href="${esc(u)}" target="_blank" rel="noopener">${label}</a>` : `<span class="btn ghost" title="Coming soon">${label} · soon</span>`;
+    const video = a.video
+      ? (/\.(mp4|webm|mov)(\?|$)/i.test(a.video) ? `<video src="${esc(a.video)}" controls playsinline preload="metadata"></video>` : `<iframe src="${esc(a.video)}" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="${esc(p.name)} demo"></iframe>`)
+      : `<div class="ph"><span class="play"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z" fill="currentColor"/></svg></span>DEMO VIDEO<br>COMING SOON</div>`;
+    pfVid.innerHTML = video; pfVidCap.textContent = p.name + ' · 60 sec pitch';
+    pfBody.innerHTML = `
+      <div class="pf-hero"><div class="pf-sub">${esc(p.sub)}</div><h2>${esc(p.name)}</h2><p class="pf-tag">${esc(p.tagline)}</p>
+        <div class="pf-links">${link(a.demo, 'Live demo ↗')}${link(a.github, 'GitHub ↗')}</div></div>
+      <section class="pf-sec"><h3><b>01</b>The problem</h3><p>${esc(p.problem)}</p><ul class="pf-list">${li(p.hard)}</ul></section>
+      <section class="pf-sec"><h3><b>02</b>Who it's for</h3><p>${esc(p.who)}</p></section>
+      <section class="pf-sec"><h3><b>03</b>Competitors</h3><div class="pf-comps">${p.comp.map((c, i) => `
+        <article class="pf-comp"><div class="pf-shot">${a.shots && a.shots[i] ? `<img src="${esc(a.shots[i])}" alt="${esc(c.name)} screenshot">` : 'screenshot<br>coming soon'}</div>
+        <div class="pf-comp-b"><h4>${esc(c.name)}</h4><div><span class="k good">DOES WELL</span><p>${esc(c.good)}</p></div><div><span class="k gap">THE GAP</span><p>${esc(c.gap)}</p></div></div></article>`).join('')}</div></section>
+      <section class="pf-sec"><h3><b>04</b>My solution</h3><p class="pf-insight">${esc(p.insight)}</p><ul class="pf-list">${li(p.sol)}</ul>
+        ${a.gallery && a.gallery.length ? `<div class="pf-gal">${a.gallery.map(g => `<div class="pf-shot"><img src="${esc(g)}" alt=""></div>`).join('')}</div>` : `<div class="pf-gal"><div class="pf-shot">product graphic<br>coming soon</div><div class="pf-shot">product graphic<br>coming soon</div><div class="pf-shot">product graphic<br>coming soon</div></div>`}</section>
+      <section class="pf-sec"><h3><b>05</b>How I measure success</h3><div class="pf-metrics">${p.metrics.map(m => `<div class="pf-metric"><span class="k">${esc(m.t)}</span><p>${esc(m.d)}</p></div>`).join('')}</div></section>`;
+  }
+  pfTabs.addEventListener('click', e => { const b = e.target.closest('.pf-tab'); if (b) location.hash = '#portfolio/' + b.dataset.id; });
+
+  // tiny router: #portfolio[/id] shows the portfolio view, anything else shows the main page
+  let lastId = '';
+  function route() {
+    const h = location.hash, m = h.match(/^#portfolio(?:\/(\w+))?/);
+    if (m) {
+      document.body.classList.add('pf-open'); closeMenu();
+      const id = m[1] || lastId || PF[0].id;
+      if (id !== lastId || !pfBody.innerHTML) { renderPF(id); lastId = id; }
+      scrollTo(0, 0);
+    } else if (document.body.classList.contains('pf-open')) {
+      document.body.classList.remove('pf-open');
+      const t = h.length > 1 && document.getElementById(h.slice(1));
+      requestAnimationFrame(() => (t || document.getElementById('projects')).scrollIntoView());
+    }
+  }
+  addEventListener('hashchange', route); route();
 })();
 </script>
 
