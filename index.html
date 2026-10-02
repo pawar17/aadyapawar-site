@@ -661,17 +661,17 @@ body.pf-open #pf{display:block}
 .pf-note p{margin:0;font-family:var(--f-clean);font-weight:500;font-size:16px;line-height:1.6;color:var(--ink)}
 
 /* ---------- flip cards ---------- */
-.polaroid{background:none!important;border:0!important;padding:0!important;box-shadow:none!important;display:block;perspective:1100px;cursor:pointer;-webkit-tap-highlight-color:transparent;transform:none!important}
+.polaroid{height:100%;background:none!important;border:0!important;padding:0!important;box-shadow:none!important;display:block;perspective:1100px;cursor:pointer;-webkit-tap-highlight-color:transparent;transform:none!important}
 .polaroid:hover{box-shadow:none!important}
-.flip{display:grid;position:relative;transform-style:preserve-3d;transition:transform .75s cubic-bezier(.3,.75,.25,1)}
+.flip{display:grid;position:relative;height:100%;transform-style:preserve-3d;transition:transform .75s cubic-bezier(.3,.75,.25,1)}
 .polaroid.flipped .flip{transform:rotateY(180deg)}
 .polaroid:not(.flipped):hover .flip{transform:rotateY(-7deg) translateY(-3px)}
 .face{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:var(--paper);border:1px solid var(--line);transition:box-shadow .25s}
 .polaroid:hover .face{box-shadow:7px 7px 0 var(--pink)}
-.front{padding:9px 9px 0;display:flex;flex-direction:column}
+.front{padding:9px 9px 0;display:flex;flex-direction:column;height:100%}
 #projectGrid .shot img{opacity:.55;filter:grayscale(1) contrast(.9)}
 .hint{font-family:var(--f-pixel);font-size:10px;letter-spacing:.06em;color:var(--pink-deep);text-transform:uppercase;margin-top:4px}
-.back{transform:rotateY(180deg);padding:22px 20px 16px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:12px;background:var(--paper)}
+.back{position:absolute;inset:0;overflow:auto;transform:rotateY(180deg);padding:22px 20px 16px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:12px;background:var(--paper)}
 .bk-t{font-family:var(--f-serifi);font-style:italic;font-weight:600;font-size:clamp(20px,1.8vw,24px);line-height:1.2}
 .bk-n{margin:0;font-family:var(--f-clean);font-weight:500;font-size:15px;line-height:1.6;color:var(--ink);text-wrap:pretty}
 .bk-l{display:flex;justify-content:center}
