@@ -624,6 +624,9 @@ body.pf-open #pf{display:block}
 .pf-banner{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;background:var(--ink);color:var(--paper);border:2px solid var(--line);box-shadow:6px 6px 0 var(--pink);padding:clamp(16px,2.2vw,24px) clamp(18px,2.6vw,30px);margin:0 0 clamp(26px,4vw,40px)}
 .pf-banner b{display:block;font-family:var(--f-pixel);font-size:clamp(15px,1.8vw,20px);margin-bottom:4px}
 .pf-banner span{font-family:var(--f-clean);font-size:14.5px;color:#d8d5d9}
+.pf-banner>div{flex:1 1 420px;min-width:0}
+.pf-try{display:block;margin:8px 0 0;background:none;box-shadow:none;border:0;padding:0;font-family:var(--f-clean);font-style:normal;font-weight:600;font-size:14px;color:var(--pink)}
+.pf-try a{background:none;box-shadow:none;padding:0;color:var(--paper);text-decoration:underline;text-underline-offset:3px}
 .pf-banner .btn{background:var(--pink);color:var(--ink);border-color:var(--pink)}
 .pf-banner .btn:hover{box-shadow:4px 4px 0 var(--paper)}
 #projectGrid.grid3{grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2vw,24px)}
@@ -715,7 +718,6 @@ body.pf-open #pf{display:block}
     <ul class="links" id="links">
       <li><a href="#about">About</a></li>
       <li><a href="#projects">Projects</a></li>
-      <li><a href="#portfolio">Product</a></li>
       <li><a href="#research">Research</a></li>
       <li><a href="#industry">Industry</a></li>
       <li><a href="#community">Community</a></li>
@@ -787,7 +789,7 @@ body.pf-open #pf{display:block}
         <button class="chip" aria-pressed="false" data-f="design">Design</button>
       </div>
     </div>
-    <div class="pf-banner"><div><b>Product Portfolio</b><span>5 case studies: the problem, the user, the competitors, and the thinking behind what I built.</span></div><a class="btn" href="#portfolio" data-open-pf>Open portfolio →</a></div>
+    <div class="pf-banner"><div><b>Product Portfolio</b><span>5 case studies: the problem, the user, the competitors, and the thinking behind what I built.</span><p class="pf-try">Check out <a href="https://pawar17.github.io/Nexus/" target="_blank" rel="noopener">NEXUS's eye gaze mode</a> &amp; <a href="https://pawar17.github.io/SignBridge/" target="_blank" rel="noopener">SignBridge</a>. Play around! I'm really happy I was able to figure these out.</p></div><a class="btn" href="#portfolio" data-open-pf>Open portfolio →</a></div>
     <div class="grid3" id="projectGrid">
       <article class="polaroid" data-tags="design" tabindex="0" role="button" aria-pressed="false" aria-label="College Portfolio: tap to flip for details">
         <div class="flip">
